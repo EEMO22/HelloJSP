@@ -13,7 +13,7 @@
   <!-- 서블릿 정보 등록 -->
   <servlet>
   	<servlet-name>MyFirstServlet</servlet-name>
-  	<servlet-class>HelloDervlet</servlet-class>
+  	<servlet-class>HelloServlet</servlet-class>
   </servlet>
   
   <!-- 서블릿 매핑 정보 등록 -->
