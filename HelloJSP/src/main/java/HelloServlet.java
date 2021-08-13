@@ -13,8 +13,9 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, 
 			HttpServletResponse resp) throws ServletException, IOException {
+//		요청 인코딩, 응답 페이지 설정 -> Filter로 위임
 		//	응답의 페이지 타입을 결정
-		resp.setContentType("text/html; charset=UTF-8");	//	text인데 html이다. text/CSS -> text인데 CSS이다...등 파일형식
+//		resp.setContentType("text/html; charset=UTF-8");	//	text인데 html이다. text/CSS -> text인데 CSS이다...등 파일형식
 		
 		//	파라미터 확인
 		String name = req.getParameter("name");
@@ -31,8 +32,11 @@ public class HelloServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, 
 			HttpServletResponse resp) throws ServletException, IOException {
+		//	요청 인코딩, 응답 페이지 설정 -> Filter로 위임
+		//	요청 데이터 인코딩 설정
+//		req.setCharacterEncoding("UTF-8");
 		//	페이지 응답 설정
-		resp.setContentType("text/html; charset=UTF-8");
+//		resp.setContentType("text/html; charset=UTF-8");
 		
 		//	폼 데이터 받기(파라미터 받기)
 		//	input 태그의 name 속성의 이름 -> 서버로 전송했을 때 파라미터에 들어가는 이름 값
