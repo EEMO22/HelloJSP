@@ -29,7 +29,7 @@
 	
 	<!-- 리스트로 돌아가기  -->
 	<p>
-		<a href="<%= request.getContextPath() %>/el/">목록 보기</a>
+		<a href="<%= request.getContextPath() %>/el">목록 보기</a>
 	</p>
 </body>
 </html>
