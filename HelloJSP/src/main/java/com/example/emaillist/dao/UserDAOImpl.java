@@ -38,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
 			//	커넥션
 			conn = getConnection();
 			//	실행 계획
-			String sql = "SELECT no, name, email, gender FROM users " + 
+			String sql = "SELECT no, name, email, gender FROM users " +
 					" WHERE email=? AND password=?";
 			//	준비
 			pstmt = conn.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class UserDAOImpl implements UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		return vo;
 	}
 
 	@Override

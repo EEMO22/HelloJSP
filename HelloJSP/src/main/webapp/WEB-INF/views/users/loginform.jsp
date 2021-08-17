@@ -15,7 +15,7 @@
 		<input type="hidden" name="a" value="login" />
 		<label for="email">이메일</label>
 		<input type="text" name="email" id="email" /><br />
-		<label for="password" >비밀번호</label>
+		<label for="password">비밀번호</label>
 		<input type="password" name="password" id="password" /><br />
 		<input type="submit" value="로그인" />
 	</form>
