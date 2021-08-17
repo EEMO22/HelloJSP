@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.emaillist.dao.UserDAO;
+import com.example.emaillist.dao.UserDAOImpl;
+import com.example.emaillist.vo.UserVO;
+
 @WebServlet("/users")
 public class UserServlet extends HttpServlet {
 
@@ -32,4 +36,42 @@ public class UserServlet extends HttpServlet {
 			resp.sendError(404);	//	Page Not Found
 		}
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String actionName = req.getParameter("a");
+		
+		if ("join".equals(actionName)) {
+			//	가입 절차 수행
+			UserVO vo = new UserVO();
+			String name = req.getParameter("name");
+			String password = req.getParameter("password");
+			String email = req.getParameter("email");
+			String gender = req.getParameter("gender");
+			
+			vo.setName(name);
+			vo.setPassword(password);
+			vo.setEmail(email);
+			vo.setGender(gender);
+			
+			System.out.println("UserVO: " + vo);
+			
+			UserDAO dao = new UserDAOImpl();
+			int insertedCount = dao.insert(vo);
+			
+			//	체크
+			if (insertedCount == 1) {
+				//	가입 성공
+				//	-> 성공 페이지로 리다이렉트
+				resp.sendRedirect(req.getContextPath() + "/users?a=joinsuccess");
+			} else {
+				//	가입 실패
+				//	-> 가입 폼으로 리다이렉트
+				resp.sendRedirect(req.getContextPath() + "/users?a=joinform");
+			}
+		} 
+	}
+	
+	
+	
 }
