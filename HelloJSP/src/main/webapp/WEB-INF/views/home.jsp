@@ -1,3 +1,6 @@
+<%@ page language="java" 
+	contentType="text/html;charset=UTF-8"
+	pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +11,10 @@
 	<h3>Hello HTML</h3>
 	<p>이것은 eemo22가 만든 첫 번째 HTML입니다</p>
 	
+	<ul>
+		<li><a href="<%= request.getContextPath() %>/users?a=joinform">회원가입</a></li>
+	</ul>
+	
 	<h4>GET 전송</h4>
 	<!-- 
 	- URL로 데이터 전송
@@ -15,7 +22,7 @@
 	- 여러 개의 파라미터는 & 로 연결
 	 -->
 	 <p>
-	 	<a href="hs?name=Servlet">HelloServlet 요청</a>
+	 	<a href="hs?name=Servlet">HelloServlet 호출</a>
 	 </p>
 	 
 	<h4>POST 전송</h4>
@@ -30,7 +37,7 @@
 	</form>
 	 
 	<h4>Emaillist (Model 1)</h4>
-	<p><a href="/web/emaillist/">이메일 리스트 (Model 1) 목록</a>
+	<p><a href="/web/emaillist/">이메일 리스트 (Model 1)</a>
 	
 	<h4>Emaillist (Model 2:MVC)</h4>
 	<p><a href="/web/el">이메일 리스트 (Model 2)</a>
