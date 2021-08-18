@@ -1,19 +1,13 @@
 <%@ page language="java" 
 	contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Hello HTML</title>
-</head>
-<body>
-	<h3>Hello HTML</h3>
-	<p>이것은 eemo22가 만든 첫 번째 HTML입니다</p>
+<!-- 동적 페이지 인클루드 -->
+<jsp:include page="/WEB-INF/views/includes/header.jsp">
+	<jsp:param value="메인 페이지" name="message"/></jsp:include>
 	
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/users?a=joinform">회원가입</a></li>
-		<li><a href="<%= request.getContextPath() %>/users?a=loginform">로그인</a>
+		<li><a href="<%= request.getContextPath() %>/users?a=loginform">로그인</a></li>
 	</ul>
 	
 	<h4>GET 전송</h4>
@@ -42,5 +36,6 @@
 	
 	<h4>Emaillist (Model 2:MVC)</h4>
 	<p><a href="/web/el">이메일 리스트 (Model 2)</a>
-</body>
-</html>
+
+<!-- 정적 페이지 인클루드 -->
+<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
